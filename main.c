@@ -1,48 +1,48 @@
+#include <stdio.h>
+int main() {
+    int rows, cols;
+    int rowsum=0, colsum=0,Total=0;
 
-#include<stdio.h>
-
-void sortArray(int arr[], int size){
-    int temp;
-for(int i=0;i<size-1;i++) {
-    for(int j=0;j<size-1-i;j++) {
-        if(arr[j]>arr[j+1]) {
-            temp=arr[j];
-            arr[j]=arr[j+1];
-          arr[j+1]=temp;
-        }
-
-    }
-}
-}
-int main(){
-    int value;
-    printf("\nHow many values are there:");
-    scanf("%d",&value);
-    int num[value];
-    for(int i=0;i<value;i++){
-        printf("Enter the number %d:\t",i+1);
-        scanf("%d",&num[i]);
-    }
-    sortArray(num,value);
-    printf("Values in ascending order:\n");
-    for(int i=0;i<value;i++) {
-        printf("%d ",num[i]);
-    }
+    printf("Enter the size of the planting grid(Ex: 4*5):");
+    scanf("%d*%d", &rows,&cols);
     printf("\n");
-    float median;
-    if(value%2==0) {
-        median=(num[value/2-1]+num[value/2])/2;
-    }
-        else {
-            median=num[value/2];
+
+
+    int array[50][50];
+    int i,j;
+
+ for(i=0;i<rows;i++) {
+     for(j=0;j<cols;j++) {
+    printf("Enter the numbers of arrays in row %d column %d slot:",i+1,j+1);
+         scanf("%d",&array[i][j]);
+     }
+
+ }
+ printf("\n---------------------------------------\n\n");
+         for( i=0;i<rows;i++) {
+             rowsum=0;
+         for( j=0;j<cols;j++) {
+             printf("%4d\t",array[i][j]);
+             rowsum+=array[i][j];
+             Total+=array[i][j];
+         }
+       printf("(%d)\n",rowsum);
+
+         }
+    for( j=0;j<cols;j++) {
+        colsum=0;
+        for( i=0;i<rows;i++) {
+            colsum+=array[i][j];
         }
+        printf("( %d)\t",colsum);
+
+    }
+
+    printf("(%d)\n",Total);
 
 
+    printf("\n\n---------------------------------------");
 
 
-        printf("\n\nThe median is %.2f",median);
-
-
-
-    return 0;
+return 0;
 }
